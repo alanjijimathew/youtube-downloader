@@ -100,9 +100,11 @@ def download(req: Req):
         'outtmpl': outtmpl,
         'noplaylist': True,
         'remote_components': ['ejs:github'],
+        'force_ipv4': True,
+        'verbose': True,
         'extractor_args': {
             'youtube': {
-                'player_client': ['tv', 'web_safari', 'mweb']
+                'player_client': ['web_embedded', 'default', '-web_embedded']
             }
         },
     }
