@@ -100,6 +100,11 @@ def download(req: Req):
         'outtmpl': outtmpl,
         'noplaylist': True,
         'remote_components': ['ejs:github'],
+        'extractor_args': {
+            'youtube': {
+                'player_client': ['tv', 'web_safari', 'mweb']
+            }
+        },
     }
 
     if req.quality == "mp3":
