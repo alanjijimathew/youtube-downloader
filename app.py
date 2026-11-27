@@ -7,8 +7,10 @@ from pydantic import BaseModel
 import uvicorn
 
 app = FastAPI()
-DOWNLOAD_DIR = Path("./downloads").resolve()
-DOWNLOAD_DIR.mkdir(exist_ok=True)
+# Change this line:
+# DOWNLOAD_DIR = Path("./downloads").resolve()
+# To this:
+DOWNLOAD_DIR = Path("./downloads")
 
 HTML = """
 <!DOCTYPE html>
@@ -100,13 +102,6 @@ def download(req: Req):
         'outtmpl': outtmpl,
         'noplaylist': True,
         'remote_components': ['ejs:github'],
-        'force_ipv4': True,
-        'verbose': True,
-        'extractor_args': {
-            'youtube': {
-                'player_client': ['web_embedded', 'default', '-web_embedded']
-            }
-        },
     }
 
     if req.quality == "mp3":
